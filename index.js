@@ -83,3 +83,21 @@ function awardScores(declaration) {
         computerScore.textContent = initialComputerScore + 1;
     }
 }
+
+// other javascript functionality
+    // write a code to reset the "reset button" that refreshes the page to reset scores of the game
+document.querySelector(".reset").addEventListener("click", function() {
+    window.location.reload();
+});
+
+    // this code handles the issue where the mobile browser's title bar (which includes the URL) takes up some of the viewport height, causing content to be cut off
+function adjustHeight() {
+    let innerBody = document.querySelector('.inner-body');
+    let vh = window.innerHeight * 0.01;
+    innerBody.style.height = `${vh * 100}px`;
+}
+
+adjustHeight();
+
+window.addEventListener('resize', adjustHeight);
+    
