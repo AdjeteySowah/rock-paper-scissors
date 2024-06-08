@@ -1,5 +1,6 @@
 
-window.onload = function() {
+window.addEventListener("load", () => {
+        // the result of the if statement on the initial opening of the page or browser is null and !null = true
     if (!localStorage.getItem('alertsShown')) {
         alert(`Hi! Thanks for checking out my web app. This game follows the usual rock-paper-scissors rules. If you already know how to play, you can click "OK" to start playing. If not, please read the next pop-up for instructions.
         `);
@@ -8,7 +9,7 @@ window.onload = function() {
         `);
         localStorage.setItem('alertsShown', 'true');
     }
-}
+});
 
 let svgs = document.querySelectorAll(".button-svg");
 svgs.forEach((svg) => {
@@ -23,6 +24,7 @@ function getComputerChoice() {
 }
 
 function playRound(event) {
+        // using just event.target was giving issues because the svg seemed to have different other tags which gave different event.targets/nodes. And an id has to be unique and applied to 1 single tag at a time. Refer to grandestParent.id to understand the decision made here 
     let grandestParent = event.target.closest(".button-svg");
     let humanChoice = grandestParent.id;
     let computerChoice = getComputerChoice();
@@ -86,13 +88,13 @@ function awardScores(declaration) {
 
 // other javascript functionality
     // write a code to reset the "reset button" that refreshes the page to reset scores of the game
-document.querySelector(".reset").addEventListener("click", function() {
+document.querySelector(".reset").addEventListener("click", () => {
     window.location.reload();
 });
 
     // this code handles the issue where the mobile browser's title bar (which includes the URL) takes up some of the viewport height, causing content to be cut off
 function adjustHeight() {
-    let innerBody = document.querySelector('.inner-body');
+    let innerBody = document.querySelector(".inner-body");
     let vh = window.innerHeight * 0.01;
     innerBody.style.height = `${vh * 100}px`;
 }
