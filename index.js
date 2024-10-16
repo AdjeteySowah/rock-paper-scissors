@@ -1,8 +1,8 @@
 
 window.addEventListener("load", () => {
-        // the result of the if statement on the initial opening of the page or browser is null and !null = true
+        // the result of the if statement on the initial opening of the page or browser is null(which is falsy) and !null is truthy allowing the alerts to be shown.
     if (!localStorage.getItem('alertsShown')) {
-        alert(`Hi! Thanks for checking out my web app. This game follows the usual rock-paper-scissors rules. If you already know how to play, you can click "OK" to start playing. If not, please read the next pop-up for instructions.
+        alert(`Hi! Thanks for checking out my web app. This game follows the usual rock-paper-scissors rules. If you already know how to play, you can click "OK" to start playing, else, please read the next pop-up for instructions.
         `);
 
         alert(`1. Rock crushes scissors.\n2. Paper covers rock.\n3. Scissors cuts paper.\n\nFor example, if you choose rock and the computer chooses scissors, then you win.
@@ -87,9 +87,20 @@ function awardScores(declaration) {
 }
 
 // other javascript functionality
-    // write a code to reset the "reset button" that refreshes the page to reset scores of the game
+    // write a code to reset the entire game(choices, winner declaration, and scores).
 document.querySelector(".reset").addEventListener("click", () => {
-    window.location.reload();
+    let yourAddedText = document.querySelector(".your-added-text");
+    let computerAddedText = document.querySelector(".computer-added-text");
+    yourAddedText.textContent = "";
+    computerAddedText.textContent = "";
+
+    let declaration = document.querySelector(".declaration");
+    declaration.style.cssText = `display: none`;
+
+    let playerScore = document.querySelector(".player-score");
+    let computerScore = document.querySelector(".computer-score");
+    playerScore.textContent = "0";
+    computerScore.textContent = "0";
 });
 
     // this code handles the issue where the mobile browser's title bar (which includes the URL) takes up some of the viewport height, causing content to be cut off
