@@ -37,3 +37,5 @@ When you first load the game, you'll see two pop-up alerts with instructions:
 - **playRound Function**: Handles the player's choice, gets the computer's choice, and updates the display with both choices.
 - **declareWinner Function**: Determines and displays the winner of the round based on the rules.
 - **awardScores Function**: Updates and displays the scores for the player and computer.
+
+[Live website](https://adjeteysowah.github.io/rock-paper-scissors/)
